@@ -1,0 +1,149 @@
+﻿Session 3 – Introduction to
+      working with R
+       Assignment - 1
+Contents
+
+  Introduction ..................................................................................................................................................... 2
+
+  Objective .......................................................................................................................................................... 2
+
+  Prerequisites .................................................................................................................................................... 2
+
+  Associated Data Files ....................................................................................................................................... 2
+
+  Problem Statement ......................................................................................................................................... 2
+
+  Expected Output .............................................................................................................................................. 2
+
+
+
+
+   Copyrights© 2017, AcadGild. All Rights Reserved                                                                                                                1
+   Introduction
+This assignment will help you to understand the key concepts learnt in this session.
+
+
+   Objective
+This assignment will test your skills on the basics of R.
+
+
+   Prerequisites
+Not Applicable
+
+
+   Associated Data Files
+Not Applicable
+
+
+   Problem Statement
+1. How to Import SAS XPORT files into R with the foreign package?
+Answer:
+
+install.packages('foreign')
+library(foreign)
+install.packages("SASxport")
+library(SASxport)
+
+Read SAS Files into R
+# Activate the `sas7bdat` library
+library(sas7bdat)
+
+# Import a SAS XPORT File read.xport
+
+read.xport(file,
+           force.integer=TRUE,
+           formats=NULL,
+           name.chars=NULL,
+           names.tolower=FALSE,
+           keep=NULL,
+           drop=NULL,
+           as.is=0.95,
+           verbose=FALSE,
+           as.list=FALSE,
+           include.formats=FALSE
+)
+
+library(foreign)
+setwd("d:/")
+data<-read.xport("sample.xpt")
+data
+head(data,n=8)
+
+2. How to Import SAS Files into R with the Haven package?
+Answer:
+
+library(haven)
+
+#read_sas() function of the haven package
+
+read_sas(data_file, catalog_file = NULL, encoding = NULL,
+catalog_encoding = encoding, cols_only = NULL)
+write_sas(data, path)
+
+# Read in the SAS data
+
+mySASData <- read.sas7bdat("example.sas7bdat")
+mySASData
+
+manish<-
+  read.spss(
+    "C:/Users/Manish Chugh/Desktop/ACADGILD/binary.sav",
+    to.data.frame = T
+  )
+head(manish)
+
+manish<-
+  read.spss(
+    "C:/Users/Manish Chugh/Desktop/ACADGILD/binary.sav",
+    to.data.frame = T,
+    use.value.table = F
+  )
+
+read.spss
+
+3. How to read Weka Attribute-Relation File Format (ARFF) files in R?
+Answer:
+
+Data from Weka Attribute-Relation File Format (ARFF) can be read in with the read.arff() function.
+require("foreign")
+library(foreign)
+data<- read.arff("C:/Users/Manish Chugh/Desktop/ACADGILD/filename")
+data
+
+
+4. How to read a heavy csv/tsv file using readr package?
+
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("readr")
+> library(readr)
+> mtcars <- read_csv(readr_example("mtcars.csv"))
+Parsed with column specification:
+cols(
+  mpg = col_double(),
+  cyl = col_integer(),
+  disp = col_double(),
+  hp = col_integer(),
+  drat = col_double(),
+  wt = col_double(),
+  qsec = col_double(),
+  vs = col_integer(),
+  am = col_integer(),
+  gear = col_integer(),
+  carb = col_integer()
+
+One of the faster packages that you may use to import your big data set into R could be the readr package, which allows you to read tabular text data, just like read.table. Nevertheless, the readr package offers “a number of replacement functions that provide additional functionality and are much faster”
+
+> df<- read_table(“C:/Users/Manish Chugh/Desktop/ACADGILD/Excel files/mtcars.csv”,col_names=TRUE)
+
+the readr package also offers the functions read_csv(), read_csv2(), read_delim(), read_fwf(), read_tsv() and many other functions that go faster than their original ones.
+
+
+   Expected Output
+Not Applicable
+
+
+
+
+  Copyrights© 2017, AcadGild. All Rights Reserved                                      2
+
